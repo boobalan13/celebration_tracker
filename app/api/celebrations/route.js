@@ -10,7 +10,6 @@ const corsHeaders = {
   'Access-Control-Allow-Credentials': 'true'
 };
 
-// ✅ Handle preflight requests
 export async function OPTIONS() {
   return new Response(null, { status: 204, headers: corsHeaders });
 }
@@ -23,7 +22,6 @@ export async function GET(req) {
     const celebrations = CelebrationStorage.find({ userEmail: session.user.email });
     return new Response(JSON.stringify(celebrations), { status: 200, headers: corsHeaders });
   } catch (error) {
-    console.error('Error fetching celebrations:', error);
     return new Response(JSON.stringify({ error: 'Internal server error' }), { status: 500, headers: corsHeaders });
   }
 }
@@ -44,7 +42,6 @@ export async function POST(req) {
     });
     return new Response(JSON.stringify(celebration), { status: 201, headers: corsHeaders });
   } catch (error) {
-    console.error('Error creating celebration:', error);
     return new Response(JSON.stringify({ error: 'Internal server error' }), { status: 500, headers: corsHeaders });
   }
 }

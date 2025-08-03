@@ -39,6 +39,7 @@ export default function SignupPage() {
       const res = await fetch("https://celebration-tracker.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: 'include',
         body: JSON.stringify({ email: form.email, password: form.password }),
       });
 
