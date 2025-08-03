@@ -18,7 +18,7 @@ export default function Dashboard() {
 
   async function fetchCelebrations() {
     try {
-      const res = await fetch('/api/celebrations');
+      const res = await fetch('https://celebration-tracker.onrender.com/api/celebrations');
       if (res.status === 401) {
         router.push('/auth');
         return;
@@ -43,7 +43,7 @@ export default function Dashboard() {
 
   async function confirmDelete() {
     try {
-      const res = await fetch(`/api/celebrations/${selectedCelebration._id}`, {
+      const res = await fetch(`https://celebration-tracker.onrender.com/api/celebrations/${selectedCelebration._id}`, {
         method: 'DELETE',
       });
       if (res.ok) {

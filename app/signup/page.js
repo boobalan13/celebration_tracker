@@ -36,7 +36,7 @@ export default function SignupPage() {
     console.log("Making API request to /api/auth/register");
 
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch("https://celebration-tracker.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: form.email, password: form.password }),

@@ -14,7 +14,7 @@ export default function EditCelebration({ id }) {
 
   async function fetchCelebration() {
     try {
-      const res = await fetch(`/api/celebrations/${id}`);
+      const res = await fetch(`https://celebration-tracker.onrender.com/api/celebrations/${id}`);
       if (res.status === 401) {
         router.push('/auth');
         return;
@@ -34,7 +34,7 @@ export default function EditCelebration({ id }) {
 
   async function handleEdit(data) {
     try {
-      const res = await fetch(`/api/celebrations/${id}`, {
+      const res = await fetch(`https://celebration-tracker.onrender.com/api/celebrations/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

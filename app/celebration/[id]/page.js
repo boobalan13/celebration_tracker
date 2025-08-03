@@ -16,7 +16,7 @@ export default function CelebrationDetail({ params }) {
 
   async function fetchCelebration() {
     try {
-      const res = await fetch(`/api/celebrations/${params.id}`);
+      const res = await fetch(`https://celebration-tracker.onrender.com/api/celebrations/${params.id}`);
       if (res.status === 401) {
         router.push('/auth');
         return;
@@ -36,7 +36,7 @@ export default function CelebrationDetail({ params }) {
 
   async function handleDelete() {
     try {
-      const res = await fetch(`/api/celebrations/${params.id}`, { method: 'DELETE' });
+      const res = await fetch(`https://celebration-tracker.onrender.com/api/celebrations/${params.id}`, { method: 'DELETE' });
       if (res.ok) {
         router.push('/dashboard');
       }
